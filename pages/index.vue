@@ -126,7 +126,7 @@
 <script>
 import { required, minLength, minValue } from 'vuelidate/lib/validators'
 import { cpf } from 'cpf-cnpj-validator';
-import Swal from 'sweetAlert2'
+import Swal from 'sweetalert2'
 export default {
   name: "IndexPage",
   validations: {
