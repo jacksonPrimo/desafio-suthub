@@ -6,7 +6,7 @@
       </div>
       <v-icon>mdi-earth</v-icon>
       <v-tabs>
-        <v-tab to="countries">
+        <v-tab to="/countries">
           <v-icon>mdi-map-search-outline</v-icon>
           PAÍSES
         </v-tab>
