@@ -22,32 +22,35 @@
           />
         </v-col>
       </v-row>
-      <v-row>
-        <v-col>
-          <v-select
-            v-model="formData.petSpecie"
-            label="Espécie"
-            :items="['cão', 'gato', 'outro']"
-            :rules="petSpecieRules"
-            @change="formData.petBreed = ''"
-          ></v-select>
-        </v-col>
-        <v-col>
-          <v-text-field
-            v-if="formData.petSpecie === 'outro'"
-            v-model="formData.petBreed"
-            label="Raça"
-            :rules="petBreedRules"
-          ></v-text-field>
-          <v-select
-            v-else
-            v-model="formData.petBreed"
-            label="Raça"
-            :items="breeds"
-            :rules="petBreedRules"
-          ></v-select>
-        </v-col>
-      </v-row>
+      <div>
+        Dados de seu animal de estimação
+        <v-row>
+          <v-col>
+            <v-select
+              v-model="formData.petSpecie"
+              label="Espécie"
+              :items="['cão', 'gato', 'outro']"
+              :rules="petSpecieRules"
+              @change="formData.petBreed = ''"
+            ></v-select>
+          </v-col>
+          <v-col>
+            <v-text-field
+              v-if="formData.petSpecie === 'outro'"
+              v-model="formData.petBreed"
+              label="Raça"
+              :rules="petBreedRules"
+            ></v-text-field>
+            <v-select
+              v-else
+              v-model="formData.petBreed"
+              label="Raça"
+              :items="breeds"
+              :rules="petBreedRules"
+            ></v-select>
+          </v-col>
+        </v-row>
+      </div>
       <v-row>
         <v-col>
         <v-text-field
@@ -69,7 +72,7 @@
         </v-col>
       </v-row>
       <div>
-        Dados de Endereço
+        Dados de seu endereço
         <v-row>
           <v-col>
             <v-text-field
