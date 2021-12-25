@@ -99,14 +99,9 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.$axios.$get("/all").then((resp) => {
+    this.$axios.$get(`${process.env.API_COUNTRIES}/all`).then((resp) => {
       this.allCountries = resp;
       this.filteredCountries = resp;
-      console.log(resp.find(r=>{
-        if(r.capital){
-          return r.capital.length > 1
-        } else return false
-      }))
     });
   },
   methods: {
@@ -117,7 +112,7 @@ export default Vue.extend({
         this.searchType === 'Idioma' ? 'lang':
         this.searchType === 'Região' ? 'region': null;
       if(type && this.searchValue){
-        this.$axios.$get(`/${type}/${this.searchValue}`).then((resp) => {
+        this.$axios.$get(`${process.env.API_COUNTRIES}/${type}/${this.searchValue}`).then((resp) => {
           this.filteredCountries = resp;
         })
       } else {

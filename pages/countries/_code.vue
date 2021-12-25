@@ -23,7 +23,7 @@
                   <v-icon>mdi-city-variant</v-icon> Capital: {{country.capital.join('/')}}
                 </v-col>
                 <v-col v-if="country.languages" cols="12">
-                  <v-icon>mdi-city-variant</v-icon> Idiomas: 
+                  <v-icon>mdi-translate</v-icon> Idiomas: 
                   <ul>
                     <li v-for="(lang, index) in langs" :key="index">
                       {{lang}}
@@ -55,24 +55,6 @@ export default Vue.extend({
   data: ()=>({
     country: null,
     notFound: false,
-     items: [
-        {
-          icon: 'mdi-inbox',
-          text: 'Inbox',
-        },
-        {
-          icon: 'mdi-star',
-          text: 'Star',
-        },
-        {
-          icon: 'mdi-send',
-          text: 'Send',
-        },
-        {
-          icon: 'mdi-email-open',
-          text: 'Drafts',
-        },
-      ],
   }),
   computed: {
     langs(): Array<string>{
@@ -83,7 +65,7 @@ export default Vue.extend({
   },
   mounted(){
     const { code } = this.$route.params;
-    this.$axios.$get(`/alpha/${code}`)
+    this.$axios.$get(`${process.env.API_COUNTRIES}/alpha/${code}`)
       .then(resp=>{
         if(resp.length){
           this.country = resp[0]
