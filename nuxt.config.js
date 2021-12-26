@@ -77,6 +77,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  router: {
+    middleware: ['redirect-router']
+  },
   env: {
     API_COUNTRIES: process.env.API_COUNTRIES,
     API_CEP: process.env.API_CEP
