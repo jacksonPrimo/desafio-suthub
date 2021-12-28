@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="country">
-      <v-card class="mx-3 my-3 card d-flex rounded">
+      <v-card class="mx-3 my-3">
         <v-row>
-          <v-col md="4" sm="6" cols="12" class="d-flex justify-content-center">
+          <v-col class="flag-container" md="4" sm="6" cols="12">
             <v-img :src="country.flags.svg" class="flag"></v-img>
           </v-col>
           <v-col md="8" sm="6" cols="12">
@@ -77,13 +77,15 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
-.flag {
+.flag-container {
+  padding-top: 0 !important;
+}
+.flag-container .flag {
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
 }
 @media(max-width: 700px){
-  .flag {
-    width: 400px !important;
+  .flag-container .flag {
     border-top-right-radius: 4px !important;
   }
 }

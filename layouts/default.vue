@@ -2,18 +2,17 @@
   <v-app>
     <v-app-bar app light>
       <v-img 
-        class="mr-3" 
-        src="/logo-suthub.png" 
-        width="150px"
+        class="logo" 
+        src="/logo-suthub.png"
       ></v-img>
       <v-tabs color="teal draken-3">
         <v-tab to="/">
           <v-icon>mdi-account-plus</v-icon>
-          CADASTRO
+          <span class="d-none d-sm-block">CADASTRO</span>
         </v-tab>
         <v-tab to="/countries">
           <v-icon>mdi-map-search-outline</v-icon>
-          PAÍSES
+          <span class="d-none d-sm-block">PAÍSES</span>
         </v-tab>
       </v-tabs>
     </v-app-bar>
@@ -38,6 +37,10 @@ export default {
 </script>
 
 <style>
+.logo {
+  width: 150px
+}
+
 .v-tabs-bar {
   float: right !important;
 }
@@ -45,4 +48,11 @@ export default {
 .v-tab {
   text-transform: none !important;
 }
+
+@media (max-width: 700px) {
+  .logo {
+    width: 135px
+  }
+}
+
 </style>

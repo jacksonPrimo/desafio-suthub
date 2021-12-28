@@ -37,7 +37,7 @@ export default Vue.extend({
   animation: showTitle 700ms ease-in-out forwards;
 }
 .card .img-card {
-  height: 210px;
+  height: 240px;
 }
 @keyframes showTitle {
   0% {

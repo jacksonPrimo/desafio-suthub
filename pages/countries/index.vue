@@ -1,32 +1,32 @@
 <template>
   <div class="d-flex flex-column">
-    <v-row class="mx-2">
-      <v-col lg="4">
-        <v-autocomplete
-          v-model="searchType"
-          :items="searchTypes"
-          label="Buscar por"
-        ></v-autocomplete>
-      </v-col>
-      <v-col lg="4">
-        <v-autocomplete
-          v-model="searchValue"
-          :items="searchOptions"
-          label="Valor"
-        ></v-autocomplete>
-      </v-col>
-      <v-col lg="4" class="d-flex align-items-center">
-        <v-btn color="teal draken-4" dark class="my-auto" @click="search()">
-          <v-icon>mdi-map-search</v-icon>
-        </v-btn>
-      </v-col>
-    </v-row>
     <v-container fluid>
+      <v-row>
+        <v-col md="5" cols="12" class="py-0">
+          <v-autocomplete
+            v-model="searchType"
+            :items="searchTypes"
+            label="Buscar por"
+          ></v-autocomplete>
+        </v-col>
+        <v-col md="5" cols="12" class="py-0">
+          <v-autocomplete
+            v-model="searchValue"
+            :items="searchOptions"
+            label="Valor"
+          ></v-autocomplete>
+        </v-col>
+        <v-col md="2" cols="12" class="py-0 d-flex align-center justify-center md-justify-begin">
+          <v-btn color="teal draken-4" dark @click="search()">
+            <v-icon>mdi-map-search</v-icon>
+            <span>Buscar</span>
+          </v-btn>
+        </v-col>
+      </v-row>
       <v-row>
         <v-col
           v-for="(country, index) in paginedCountries"
           :key="index"
-          lg="3"
           md="4"
           sm="6"
           cols="12"
@@ -35,7 +35,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <div class="text-center">
+    <div v-if="filteredCountries.length" class="text-center">
       <v-pagination
         v-model="page"
         :length="pages"
@@ -56,7 +56,7 @@ export default Vue.extend({
   components: { CountryCard },
   data: () => ({
     page: 1,
-    itemsPerPage: 8,
+    itemsPerPage: 9,
     allCountries: [],
     filteredCountries: [],
     searchTypes: [ "Nome", "Região", "Idioma" ],
