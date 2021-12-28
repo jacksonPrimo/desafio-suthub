@@ -5,124 +5,141 @@
       lazy-validation
     > 
       <v-row>
-        <v-col>
-        <v-text-field
-          v-model="formData.name"
-          :rules="nameRules"
-          label="Name"
-        ></v-text-field>
-
+        <v-col lg="6" cols="12">
+          <v-text-field
+            v-model="formData.name"
+            :rules="nameRules"
+            prepend-icon="mdi-account-details"
+            label="Name"
+          ></v-text-field>
         </v-col>
-        <v-col>
+        <v-col lg="6" cols="12">
           <v-text-field
             v-model="formData.cpf"
              v-mask="'###.###.###-##'"
             :rules="cpfRules"
+            prepend-icon="mdi-badge-account-horizontal"
             label="Cpf"
           />
         </v-col>
       </v-row>
-      <div>
-        Dados de seu animal de estimação
-        <v-row>
-          <v-col>
-            <v-select
-              v-model="formData.petSpecie"
-              label="Espécie"
-              :items="['cão', 'gato', 'outro']"
-              :rules="petSpecieRules"
-              @change="formData.petBreed = ''"
-            ></v-select>
-          </v-col>
-          <v-col>
-            <v-text-field
-              v-if="formData.petSpecie === 'outro'"
-              v-model="formData.petBreed"
-              label="Raça"
-              :rules="petBreedRules"
-            ></v-text-field>
-            <v-select
-              v-else
-              v-model="formData.petBreed"
-              label="Raça"
-              :items="breeds"
-              :rules="petBreedRules"
-            ></v-select>
-          </v-col>
-        </v-row>
-      </div>
       <v-row>
         <v-col>
-        <v-text-field
-          v-model="formData.birthDate"
-          label="Data de Nascimento"
-          :rules="birthDateRules"
-          type="datetime-local"
-        ></v-text-field>
-
+          <v-select
+            v-model="formData.petSpecie"
+            label="Espécie"
+            prepend-icon="mdi-dog-side"
+            :items="['cão', 'gato', 'outro']"
+            :rules="petSpecieRules"
+            @change="formData.petBreed = ''"
+          ></v-select>
         </v-col>
         <v-col>
+          <v-text-field
+            v-if="formData.petSpecie === 'outro'"
+            v-model="formData.petBreed"
+            label="Raça"
+            :prepend-icon="breed.icon"
+            :rules="petBreedRules"
+          ></v-text-field>
+          <v-select
+            v-else
+            v-model="formData.petBreed"
+            label="Raça"
+            :prepend-icon="breed.icon"
+            :items="breed.breeds"
+            :rules="petBreedRules"
+          ></v-select>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col md="6" cols="12">
+          <v-text-field
+            v-model="formData.birthDate"
+            label="Data de Nascimento"
+            :rules="birthDateRules"
+            prepend-icon="mdi-cake-variant"
+            type="datetime-local"
+          ></v-text-field>
+        </v-col>
+        <v-col md="6" cols="12">
           <v-text-field
             v-model="formData.monthlyIncome"
             type="number"
             min="0"
             label="Renda Mensal"
+            prepend-icon="mdi-currency-usd"
             :rules="monthlyIncomeRules"
           />
         </v-col>
       </v-row>
-      <div>
-        Dados de seu endereço
-        <v-row>
-          <v-col>
-            <v-text-field
-              v-model="formData.address.cep"
-              v-mask="'#####-###'"
-              label="Cep"
-              :rules="cepRules"
-              @change="autoCompleteAddress()"
-            ></v-text-field>
-          </v-col>
-          <v-col>
-            <v-text-field
-              v-model="formData.address.city"
-              label="Cidade"
-              :rules="cityRules"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col lg="4">
-            <v-select
-              v-model="formData.address.state"
-              label="Estado"
-              :items="states"
-              :rules="stateRules"
-            ></v-select>
-          </v-col>
-          <v-col lg="4">
-            <v-text-field
-              v-model="formData.address.district"
-              label="Bairro"
-              :rules="districtRules"
-            ></v-text-field>
-          </v-col>
-          <v-col lg="4">
-            <v-text-field
-              v-model="formData.address.street"
-              label="Rua"
-              :rules="streetRules"
-            ></v-text-field>
-          </v-col>
-        </v-row>
+      <v-row>
+        <v-col sm="3" cols="12">
+          <v-text-field
+            v-model="formData.address.cep"
+            v-mask="'#####-###'"
+            label="Cep"
+            prepend-icon="mdi-mailbox"
+            :rules="cepRules"
+            @change="autoCompleteAddress()"
+          ></v-text-field>
+        </v-col>
+        <v-col sm="5" cols="12">
+          <v-text-field
+            v-model="formData.address.city"
+            label="Cidade"
+            prepend-icon="mdi-home-city-outline"
+            :rules="cityRules"
+          ></v-text-field>
+        </v-col>
+        <v-col sm="4" cols="12">
+          <v-select
+            v-model="formData.address.state"
+            label="Estado"
+            prepend-icon="mdi-earth-box"
+            :items="states"
+            :rules="stateRules"
+          ></v-select>
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col sm="6" cols="12">
+          <v-text-field
+            v-model="formData.address.district"
+            prepend-icon="mdi-city-variant-outline"
+            label="Bairro"
+            :rules="districtRules"
+          ></v-text-field>
+        </v-col>
+        <v-col sm="6" cols="12">
+          <v-text-field
+            v-model="formData.address.street"
+            prepend-icon="mdi-road"
+            label="Rua"
+            :rules="streetRules"
+          ></v-text-field>
+        </v-col>
+      </v-row>
+      <div class="d-flex justify-center my-3">
+        <v-btn
+          color="indigo"
+          outlined
+          class="mr-4 details-button"
+          @click="register"
+        >          
+          <span>Registrar</span>
+          <v-icon>mdi-arrow-right</v-icon>
+        </v-btn>
+        <v-btn
+          color="red"
+          class="details-button"
+          outlined
+          @click="resetForm"
+        >
+          <span>Resetar</span>
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
       </div>
-      <v-btn
-        color="success"
-        class="mr-4"
-        @click="register"
-      >
-        Registrar
-      </v-btn>
     </v-form>
   </v-card>
 </template>
@@ -137,7 +154,7 @@ export default {
       name: {
         required,
         lastName: v => {
-          const splited = v.split(' ') 
+          const splited = v ? v.split(' '): []
           return (splited.length > 1 && splited[1].length > 0)
         }
       },
@@ -210,73 +227,82 @@ export default {
   computed: {
     nameRules() {
       return [
-        () => this.$v.formData.name.required || 'O campo nome é obrigatório',
+        () => this.$v.formData.name.required || 'O seu nome é um campo obrigatório',
         () => this.$v.formData.name.lastName || 'Preencha com nome e sobrenome'
       ]
     },
     cpfRules(){
       return [
-        () => this.$v.formData.cpf.required || 'Cpf é um campo obrigatório',
+        () => this.$v.formData.cpf.required || 'O seu Cpf é um campo obrigatório',
         () => this.$v.formData.cpf.minLength || 'Preencha com os 11 caracteres',
         () => this.$v.formData.cpf.valid || 'Preencha com um cpf válido'
       ]
     },
     petSpecieRules() {
       return [
-        () => this.$v.formData.petSpecie.required || 'Este campo é obrigatório',
+        () => this.$v.formData.petSpecie.required || 'A espécie do seu pet é um campo obrigatório',
       ]
     },
     petBreedRules() {
       return [
-        () => this.$v.formData.petBreed.required || 'Este campo é obrigatório',
+        () => this.$v.formData.petBreed.required || 'A espécie do seu pet é um campo obrigatório',
       ]
     },
     birthDateRules() {
       return [
-        () => this.$v.formData.birthDate.required || 'Este campo é obrigatório',
+        () => this.$v.formData.birthDate.required || 'A sua data de nascimento é um campo obrigatório',
         () => this.$v.formData.birthDate.ageRange || 'A idade permitida é entre 18 e 65 anos',
       ]
     },
     monthlyIncomeRules() {
       return [
-        () => this.$v.formData.monthlyIncome.required || 'Este campo é obrigatório',
+        () => this.$v.formData.monthlyIncome.required || 'Sua renda mensal é um campo obrigatório',
         () => this.$v.formData.monthlyIncome.minValue || 'Valor mínimo de R$ 1000,00',
       ]
     },
     cepRules() {
       return [
-        () => this.$v.formData.address.cep.required || 'Este campo é obrigatório',
+        () => this.$v.formData.address.cep.required || 'O cep é um campo obrigatório',
         () => this.$v.formData.address.cep.minLength || 'Preencha com os 8 caracteres',
       ]
     },
     stateRules() {
       return [
-        () => this.$v.formData.address.state.required || 'Este campo é obrigatório',
+        () => this.$v.formData.address.state.required || 'O estado é um campo obrigatório',
       ]
     },
     cityRules() {
       return [
-        () => this.$v.formData.address.city.required || 'Este campo é obrigatório',
+        () => this.$v.formData.address.city.required || 'A cidade é um campo obrigatório',
       ]
     },
     districtRules() {
       return [
-        () => this.$v.formData.address.district.required || 'Este campo é obrigatório',
+        () => this.$v.formData.address.district.required || 'O bairro é um campo obrigatório',
       ]
     },
     streetRules() {
       return [
-        () => this.$v.formData.address.street.required || 'Este campo é obrigatório',
+        () => this.$v.formData.address.street.required || 'O rua é um campo obrigatório',
       ]
     },
-    breeds(){
+    breed(){
       switch(this.formData.petSpecie){
         case 'cão':
-          return ['Pastor Alemão', 'Pug', 'Poodle', 'Vira Lata', 'buldogue'];
+          return {
+            icon: 'mdi-dog',
+            breeds: ['Pastor Alemão', 'Pug', 'Poodle', 'Vira Lata', 'buldogue']
+          };
         case 'gato':
-          return ['Persa', 'Siamês', 'Ragdoll', 'Angorá', 'Thai'];
-        default: 
-          return []
+          return {
+            icon: 'mdi-cat',
+            breeds: ['Persa', 'Siamês', 'Ragdoll', 'Angorá', 'Thai']
+          }
+        default:
+          return {
+            icon: 'mdi-duck',
+            breeds: []
+          }
       }
     }
   },
@@ -311,8 +337,9 @@ export default {
         Swal.fire('Preencha todos os dados corretamente', '', 'error')
         this.$refs.form.validate()
       } else {
-        this.registerInBackend(this.formData.name)
+        this.registerInBackend(this.formData)
           .then(()=>{
+            this.resetForm()
             Swal.fire('Usuário cadastrado com sucesso', '', 'success')
           })
           .catch(()=>{
@@ -330,7 +357,26 @@ export default {
             : reject(new Error('error on register'))
         }, 3000)
       })
+    },
+    resetForm(){
+      this.$refs.form.reset()
     }
   },
 }
 </script>
+<style lang="scss" scoped>
+.details-button span {
+  max-width: 0;
+  display: inline-flex;
+  white-space: nowrap;
+  transition: max-width 0.5s, padding-right 0.45s;
+  overflow: hidden;
+}
+
+.details-button:hover span, .details-button:focus span {
+  max-width: 100px;
+  padding-right: 10px !important;
+}
+// @media (min-width: 700px) {
+// }
+</style>
