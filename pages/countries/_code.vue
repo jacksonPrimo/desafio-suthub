@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="country">
-      <v-card class="mx-3 my-3 card d-flex">
+      <v-card class="mx-3 my-3 card d-flex rounded">
         <v-row>
-          <v-col lg="4" cols="12" class="d-flex justify-content-center">
+          <v-col md="4" sm="6" cols="12" class="d-flex justify-content-center">
             <v-img :src="country.flags.svg" class="flag"></v-img>
           </v-col>
-          <v-col lg="8" cols="12">
+          <v-col md="8" sm="6" cols="12">
             <v-card-title> {{ country.name.common }} </v-card-title>
             <v-card-text>
               <v-row>
@@ -77,9 +77,14 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss" scoped>
+.flag {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
 @media(max-width: 700px){
   .flag {
     width: 400px !important;
+    border-top-right-radius: 4px !important;
   }
 }
 </style>
