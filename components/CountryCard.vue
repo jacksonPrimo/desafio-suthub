@@ -2,9 +2,8 @@
   <v-card class="card mx-1 my-1" role="button" :to="'/countries/'+country.cca2">
     <v-img 
       :src="country.flags.svg" 
-      height="200px"
-      class="white--text align-end"
-      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+      class="white--text align-end img-card"
+      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.4)"
     >
       <v-card-title class="card-title"> {{ country.name.common }} </v-card-title>
     </v-img>
@@ -25,7 +24,7 @@ export default Vue.extend({
   }),
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
   position: relative;
 }
@@ -37,6 +36,9 @@ export default Vue.extend({
 .card:hover .card-title {
   animation: showTitle 700ms ease-in-out forwards;
 }
+.card .img-card {
+  height: 210px;
+}
 @keyframes showTitle {
   0% {
     visibility: hidden;
@@ -45,6 +47,11 @@ export default Vue.extend({
   100% {
     visibility: visible;
     transform: translateY(0px);
+  }
+}
+@media (max-width: 700px) {
+  .card .img-card {
+    height: auto;
   }
 }
 </style>
