@@ -26,9 +26,10 @@
         <v-col
           v-for="(country, index) in paginedCountries"
           :key="index"
-          cols="12"
           lg="3"
           md="4"
+          sm="6"
+          cols="12"
         >
           <CountryCard :country="country" />
         </v-col>
