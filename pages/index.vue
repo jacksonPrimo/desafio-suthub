@@ -122,7 +122,7 @@
       </v-row>
       <div class="d-flex justify-center my-3">
         <v-btn
-          color="indigo"
+          color="teal draken-4"
           outlined
           class="mr-4 details-button"
           @click="register"

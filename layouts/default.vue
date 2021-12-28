@@ -22,7 +22,7 @@
       <Nuxt />
     </v-main>
     <v-footer class="pa-0" dark>
-      <v-card flat tile width="100%" class="text-center" color="teal">
+      <v-card flat tile width="100%" class="text-center py-4" color="teal draken-4">
         <v-card-text class="gray--text">
           {{ new Date().getFullYear() }} — <strong>Desafio Suthub</strong>
         </v-card-text>

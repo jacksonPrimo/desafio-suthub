@@ -16,7 +16,7 @@
         ></v-autocomplete>
       </v-col>
       <v-col lg="4" class="d-flex align-items-center">
-        <v-btn color="primary" class="my-auto" @click="search()">
+        <v-btn color="teal draken-4" dark class="my-auto" @click="search()">
           <v-icon>mdi-map-search</v-icon>
         </v-btn>
       </v-col>
@@ -40,6 +40,7 @@
         v-model="page"
         :length="pages"
         :total-visible="6"
+        color="teal draken-4"
         circle
       ></v-pagination>
     </div>
