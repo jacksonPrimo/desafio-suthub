@@ -5,7 +5,7 @@
       lazy-validation
     > 
       <v-row>
-        <v-col lg="6" cols="12">
+        <v-col md="6" cols="12">
           <v-text-field
             v-model="formData.name"
             :rules="nameRules"
@@ -13,7 +13,7 @@
             label="Name"
           ></v-text-field>
         </v-col>
-        <v-col lg="6" cols="12">
+        <v-col md="6" cols="12">
           <v-text-field
             v-model="formData.cpf"
              v-mask="'###.###.###-##'"
