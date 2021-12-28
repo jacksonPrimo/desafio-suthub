@@ -34,6 +34,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     '@nuxtjs/netlify-files',
+    '@nuxtjs/pwa'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,8 +53,10 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en',
-    },
+      name: 'Desafio Suthub',
+      lang: 'pt-br',
+      useWebmanifestExtension: false
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
