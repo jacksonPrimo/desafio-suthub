@@ -3,7 +3,7 @@
     <v-app-bar app light>
       <v-img 
         class="logo" 
-        src="/logo-suthub.png"
+        src="img/logo-suthub.png"
       ></v-img>
       <v-tabs color="teal draken-3">
         <v-tab to="/">

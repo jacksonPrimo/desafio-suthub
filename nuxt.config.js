@@ -13,7 +13,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: 'img/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -57,14 +57,23 @@ export default {
       author: 'jackson aquino primo'
     },
     icon: {
-      fileName: 'icon.png',
-      sizes: [64, 120, 144, 152, 192, 384, 512]
+      fileName: 'img/icon.png'
     },
     manifest: {
       name: 'Desafio Suthub',
+      short_name: 'DSH',
       lang: 'pt-br',
+      icons: [
+        {
+          src: 'img/icon.png',
+          sizes: '500x500'
+        }
+      ],
+      theme_color: '#fff',
+      background_color: '#009688',
+      display: 'fullscreen',
       useWebmanifestExtension: false
-    }
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
