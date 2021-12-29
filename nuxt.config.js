@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  // server: {     
+  //   port: 8000, // default: 3000     
+  //   host: '0.0.0.0', // default: localhost   
+  // },
   target: 'static',
   ssr: true,
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -57,7 +61,8 @@ export default {
       author: 'jackson aquino primo'
     },
     icon: {
-      fileName: 'img/icon.png'
+      fileName: 'img/icon.png',
+      sizes: [64, 120, 144, 152, 192, 384, 512]
     },
     manifest: {
       name: 'Desafio Suthub',
@@ -66,7 +71,7 @@ export default {
       icons: [
         {
           src: 'img/icon.png',
-          sizes: '500x500'
+          sizes: '315x315'
         }
       ],
       theme_color: '#fff',
