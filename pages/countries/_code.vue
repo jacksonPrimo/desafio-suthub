@@ -11,7 +11,10 @@
             <v-card-text>
               <v-row>
                 <v-col lg="6" cols="12">
-                  <v-icon>mdi-account-group</v-icon> população: {{country.population}}
+                  <v-icon>mdi-map-marker-question</v-icon> Lat/Long: {{country.latlng[0]}}/{{country.latlng[1]}}
+                </v-col>
+                <v-col lg="6" cols="12">
+                  <v-icon>mdi-account-group</v-icon> População: {{country.population}}
                 </v-col>
                 <v-col lg="6" cols="12">
                   <v-icon>mdi-earth-box</v-icon> Região: {{country.region}}
@@ -20,15 +23,10 @@
                   <v-icon>mdi-sort-alphabetical-variant</v-icon> Nome Oficial: {{country.name.official}}
                 </v-col>
                 <v-col v-if="country.capital" lg="6" cols="12">
-                  <v-icon>mdi-city-variant</v-icon> Capital: {{country.capital.join('/')}}
+                  <v-icon>mdi-city-variant</v-icon> Capital: {{country.capital.join(' / ')}}
                 </v-col>
                 <v-col v-if="country.languages" cols="12">
-                  <v-icon>mdi-translate</v-icon> Idiomas: 
-                  <ul>
-                    <li v-for="(lang, index) in langs" :key="index">
-                      {{lang}}
-                    </li>
-                  </ul>
+                  <v-icon>mdi-chat-processing-outline</v-icon> Idiomas: {{langs.join(' / ')}}
                 </v-col>
               </v-row>
             </v-card-text>
